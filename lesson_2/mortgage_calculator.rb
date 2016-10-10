@@ -5,10 +5,10 @@
 # -check that input is valid
 # -get loan duration in months
 # -
-require 'pry'
 def prompt(message)
   Kernel.puts("=> #{message}")
 end
+
 def integer?(input)
   input.to_i().to_s() == input
 end
@@ -37,12 +37,12 @@ loop do
     
   end
   
-  input_ARP = ''
+  input_arp = ''
   loop do
     prompt("What is your Annual Percentage Rate? [i.e 5 for 5%]")
-    input_ARP = Kernel.gets().chomp().delete("%")
+    input_arp = Kernel.gets().chomp().delete("%")
     
-    if valid_input?(input_ARP)
+    if valid_input?(input_arp)
       break
     else
       prompt("It is not a valid number. Please try again.") 
@@ -50,9 +50,9 @@ loop do
     
   end
   
-  input_duration =''
+  input_duration = ''
   loop do
-    prompt("What is the duration of the loan [years]" )
+    prompt("What is the duration of the loan [years]")
     input_duration = Kernel.gets().chomp()
     if valid_input?(input_duration)
       break
@@ -63,9 +63,8 @@ loop do
   
   n = input_duration.to_f * 12
   p = input_loan.to_f()
-  j = input_ARP.to_f() / 100 / 12
-  monthly_payment = p * (j / (1-(1 + j)**-n)).round(2)
-  binding.pry
+  j = input_arp.to_f() / 100 / 12
+  monthly_payment = p * (j / (1 - (1 + j)**-n)).round(2)
   prompt("Your monthly payment is #{monthly_payment} $")
   
   prompt "Do you want start again? [Y/N]"
