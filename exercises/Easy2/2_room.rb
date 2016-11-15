@@ -12,6 +12,7 @@
 # 7
 # The area of the room is 70.0 square meters (753.47 square feet).
 
+SQMETERS_TO_SQFEET = 10.7639
 def get_length
   puts "Enter the length of the room in meters:"
   length = gets.chomp.to_f
@@ -31,4 +32,6 @@ width = get_width
 
 area = room_area(length, width)
 
-puts "The area of the room is #{area} square meters (#{(area*10.7639).round(2)} square feet)"
+area_in_sqfeet = (area*SQMETERS_TO_SQFEET).round(2)
+
+puts "The area of the room is #{area} square meters (#{area_in_sqfeet} square feet)"
