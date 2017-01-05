@@ -94,7 +94,7 @@ loop do
       prompt("Computer win a game!")
       break
     end
-  end  
+  end
   
   prompt("Do you want to play again?")
   answer = Kernel.gets().chomp()
