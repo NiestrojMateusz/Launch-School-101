@@ -4,16 +4,35 @@
 
 # Do not use the method Array#rotate or Array#rotate! for your implementation.
 
-# Example:
+=begin
+Undesrstanding the problem
+input is an array
+output  is a new array that has moved first element of argument array on last place
 
-def rotate_array(arr)
-  new_arr = arr
-  new_arr << new_arr.shift
-end
-
+Example:
 rotate_array([7, 3, 5, 2, 9, 1]) == [3, 5, 2, 9, 1, 7]
 rotate_array(['a', 'b', 'c']) == ['b', 'c', 'a']
 rotate_array(['a']) == ['a']
+
+Data Structure
+-array
+  - need to take first elemnt and add it to last place
+
+Algorithm
+-create a copy of an argument array
+  -Array#clone
+-shift first element and push it to the end
+-return new array
+=end
+def rotate_array(arr)
+  new_arr = arr.clone
+  new_arr << new_arr.shift
+  new_arr
+end
+
+p rotate_array([7, 3, 5, 2, 9, 1]) == [3, 5, 2, 9, 1, 7]
+p rotate_array(['a', 'b', 'c']) == ['b', 'c', 'a']
+p rotate_array(['a']) == ['a']
 
 # x = [1, 2, 3, 4]
 # rotate_array(x) == [2, 3, 4, 1]   # => true

@@ -1,9 +1,9 @@
-require 'pry'
+# require 'pry'
 DIGITS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
 def integer_to_string(number)
   result = ''
-  binding.pry
+  # binding.pry
   loop do
     number, remainder = number.divmod(10)
     result.prepend(DIGITS[remainder])
@@ -16,3 +16,5 @@ end
 integer_to_string(4321) == '4321'
 integer_to_string(0) == '0'
 integer_to_string(5000) == '5000'
+
+

@@ -2,6 +2,38 @@
 
 # Write a method that displays a 4-pointed diamond in an n x n grid, where n is an odd integer that is supplied as an argument to the method. You may assume that the argument will always be an odd integer.
 
+=begin
+Understand the problem
+- input: a integer
+-output: print on the screen a number of strings
+-Model
+  -given a odd integer
+  -output strings equal to value of integer
+  -print * (1, 3, 5, 3, 1)
+  -print prepend spaces (2, 1, 0, 1, 2)
+
+Data structure
+-number
+-arrays
+
+Algorithm
+-generate array for * [1, 3,... 2a+1 ..., 3, 1]
+-generate array for spaces [a, a-1,..., 1, 0, 1, .. a-1, a]
+- loop throug this arrays and print out each
+=end
+def diamond(num)
+  sign_arr = (1..num).step(2).to_a + (1..num-1).step(2).to_a.reverse
+  spaces = (num-1)/2
+  spaces_arr = (0..spaces).to_a.reverse + (1..spaces).to_a
+  
+  0.upto(num-1) do |i|
+    puts "#{" " * spaces_arr[i]}#{"*" * sign_arr[i]}"
+  end 
+end
+
+diamond(11)
+#-------------------------------------------------------------------------
+
 def diamond(int)
   if int == 1
     puts "*"

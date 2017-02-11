@@ -23,6 +23,8 @@
 
 # You should initialize the register to 0.
 
+
+
 def minilang(string)
   register = 0
   stack = []

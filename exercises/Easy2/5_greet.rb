@@ -9,6 +9,49 @@
 # What is your name? Bob!
 # HELLO BOB. WHY ARE WE SCREAMING?
 
+=begin
+Understand the Problem
+  input: string
+  output: Greeting to user or asking question if input ends with "!"
+
+Data structure
+  String
+  - slice last char
+  
+Algorithm
+-Ask youser to get name
+-store input in variable
+  -slice input string to last character
+-if last character is "!" then print out Greeting with question
+-if last charcter is diffrent than ! then print out Greeting
+
+=end
+
+puts "What is your name?"
+name = gets.chomp
+
+if name[-1] == "!"
+  puts "HELLO #{name[0...-1].upcase}. WHY ARE WE SCREAMING?"
+else
+  puts "Hello #{name}"
+end  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 puts "What is your name?"
 username = gets.chomp
 if username.include? "!" 

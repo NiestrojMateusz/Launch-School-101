@@ -1,9 +1,51 @@
-# Staggered Caps (Part 1)
+=begin
+Staggered Caps (Part 2)
 
-# Write a method that takes a String as an argument, and returns a new String that contains the original value using a staggered capitalization scheme in which every other character is capitalized, and the remaining characters are lowercase. Characters that are not letters should not be changed, but count as characters when switching between upper and lowercase.
+Modify the method from the previous exercise so it ignores non-alphabetic characters when determining whether it should uppercase or lowercase each letter. The non-alphabetic characters should still be included in the return value; they just don't count when toggling the desired case.
 
-# Example:
-# require 'pry'
+Example:
+
+staggered_case('I Love Launch School!') == 'I lOvE lAuNcH sChOoL!'
+staggered_case('ALL CAPS') == 'AlL cApS'
+staggered_case('ignore 77 the 444 numbers') == 'IgNoRe 77 ThE 444 nUmBeRs'
+=end
+
+def staggered_case(string)
+  num = []
+  num_index = []
+  arr = string.chars
+  arr.each_with_index do |char, index|
+    if char =~ /\d/
+      num << char
+      num_index << index
+  end
+  
+  
+
+  
+  result = arr.map.with_index do |char, index|
+    if (index.even? || index == 0) && char == char.downcase
+      char.upcase
+    elsif index.odd? && char == char.upcase
+      char.downcase
+    else
+      char
+    end  
+  end 
+  result.join
+end
+
+
+
+
+
+
+
+
+
+
+
+
 def staggered_case(string, first_char_case=true)
   arr = string.split("")
   first_char_upcase = first_char_case
